@@ -1,0 +1,4 @@
+import { PolicyPage } from "@/components/content/policy-page";
+
+export const metadata = { title: "Chính sách đổi trả" };
+export default function ReturnPolicyPage() { return <PolicyPage eyebrow="Chính sách" title="Đổi trả." introduction="Hoa tươi là sản phẩm được thiết kế theo đơn. Cửa hàng xem xét từng trường hợp dựa trên tình trạng thực tế." sections={[{ title: "Khi cần hỗ trợ", content: "Hãy liên hệ cửa hàng ngay khi phát hiện vấn đề và cung cấp mã đơn cùng hình ảnh sản phẩm để được kiểm tra." }, { title: "Xác minh tình trạng", content: "Cửa hàng đối chiếu ảnh thành phẩm, thông tin giao nhận và tình trạng hoa để đề xuất hướng xử lý phù hợp." }, { title: "Phương án xử lý", content: "Tùy kết quả xác minh, cửa hàng sẽ trao đổi trực tiếp về việc điều chỉnh, thay thế hoặc phương án phù hợp khác cho đơn hàng." }]} />; }

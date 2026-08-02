@@ -1,0 +1,40 @@
+- generic:
+  - link:
+    - /url: "#main-content"
+    - text: Bỏ qua điều hướng
+  - generic:
+    - generic:
+      - banner:
+        - generic:
+          - button [expanded]
+          - generic:
+            - paragraph: Quản trị
+            - paragraph: Tổng quan
+      - main:
+        - alert:
+          - heading [level=2]: Không thể tải dữ liệu
+          - paragraph: Kết nối chưa thành công. Vui lòng thử lại.
+          - button:
+            - generic: Thử lại
+  - alert
+  - dialog [ref=f1e30]:
+    - heading "Quản trị Lá & Hoa" [level=2] [ref=f1e32]
+    - button "Đóng" [active] [ref=f1e33] [cursor=pointer]
+    - generic [ref=f1e36]:
+      - navigation "Điều hướng quản trị" [ref=f1e37]:
+        - link "Tổng quan" [ref=f1e38] [cursor=pointer]:
+          - /url: /admin/dashboard
+        - link "Sản phẩm" [ref=f1e41] [cursor=pointer]:
+          - /url: /admin/products
+        - link "Danh mục" [ref=f1e44] [cursor=pointer]:
+          - /url: /admin/categories
+        - link "Đơn hàng" [ref=f1e47] [cursor=pointer]:
+          - /url: /admin/orders
+        - link "Tồn kho" [ref=f1e50] [cursor=pointer]:
+          - /url: /admin/inventory
+        - link "Mã ưu đãi" [ref=f1e53] [cursor=pointer]:
+          - /url: /admin/coupons
+      - generic [ref=f1e56]:
+        - link "Về cửa hàng" [ref=f1e57] [cursor=pointer]:
+          - /url: /
+        - button "Đăng xuất" [ref=f1e60] [cursor=pointer]

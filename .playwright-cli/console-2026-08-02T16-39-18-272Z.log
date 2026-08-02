@@ -1,0 +1,13 @@
+[     255ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fhero-editorial.png&w=750&q=75:0
+[     299ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fatelier-story.png&w=750&q=75:0
+[     435ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3000/favicon.ico:0
+[    2733ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/v1/cart:0
+[   14088ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fhero-editorial.png&w=828&q=75:0
+[   14095ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fatelier-story.png&w=1080&q=75:0
+[   25002ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fhero-editorial.png&w=640&q=75:0
+[   25006ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fatelier-story.png&w=640&q=75:0
+[   26384ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fhero-editorial.png&w=640&q=75:0
+[   26388ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fatelier-story.png&w=640&q=75:0
+[   28583ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/v1/cart:0
+[   50650ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fhero-editorial.png&w=828&q=75:0
+[   50653ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fatelier-story.png&w=828&q=75:0

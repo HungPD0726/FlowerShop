@@ -1,0 +1,106 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Lá & Hoa, trang chủ" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: "&"
+          - generic [ref=e8]: Lá & Hoa
+        - navigation "Điều hướng chính" [ref=e9]:
+          - link "Trang chủ" [ref=e10] [cursor=pointer]:
+            - /url: /
+          - link "Cửa hàng" [ref=e11] [cursor=pointer]:
+            - /url: /products
+          - link "Sinh nhật" [ref=e12] [cursor=pointer]:
+            - /url: /products?category=hoa-sinh-nhat
+          - link "Câu chuyện" [ref=e13] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=e14]:
+          - button "Tìm kiếm" [ref=e15] [cursor=pointer]
+          - link "Đăng nhập" [ref=e18] [cursor=pointer]:
+            - /url: /login
+          - button "Giỏ hàng, 0 sản phẩm" [ref=e21] [cursor=pointer]
+    - main [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Cửa hàng hoa." [level=1] [ref=e27]
+          - paragraph [ref=e28]: Lọc theo dịp, màu sắc, loại hoa và khoảng giá để tìm thiết kế phù hợp.
+        - generic [ref=e29]:
+          - complementary [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e35]:
+                - generic [ref=e36]: Tìm kiếm
+                - textbox "Tìm kiếm" [ref=e37]:
+                  - /placeholder: Tên mẫu hoa
+              - generic [ref=e38]:
+                - generic [ref=e39]: Danh mục
+                - combobox "Danh mục" [ref=e40]:
+                  - option "Tất cả danh mục" [selected]
+              - generic [ref=e41]:
+                - generic [ref=e42]: Loại hoa
+                - textbox "Loại hoa" [ref=e43]:
+                  - /placeholder: "Ví dụ: hoa hồng"
+              - generic [ref=e44]:
+                - generic [ref=e45]: Màu chủ đạo
+                - textbox "Màu chủ đạo" [ref=e46]:
+                  - /placeholder: "Ví dụ: đỏ"
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic [ref=e49]: Giá từ
+                  - spinbutton "Giá từ" [ref=e50]
+                - generic [ref=e51]:
+                  - generic [ref=e52]: Đến
+                  - spinbutton "Đến" [ref=e53]
+              - generic [ref=e54] [cursor=pointer]:
+                - checkbox "Chỉ còn hàng" [ref=e55]
+                - text: Chỉ còn hàng
+              - button "Xóa bộ lọc" [ref=e56] [cursor=pointer]
+          - region "Danh sách sản phẩm" [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]: 0 sản phẩm
+              - combobox "Sắp xếp sản phẩm" [ref=e65]:
+                - option "Mới nhất" [selected]
+                - option "Bán chạy"
+                - option "Giá tăng dần"
+                - option "Giá giảm dần"
+    - contentinfo [ref=e91]:
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - link "Lá & Hoa" [ref=e95] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e96]: Hoa tươi thiết kế thủ công cho sinh nhật, tình yêu, khai trương và những dịp cần một lời nhắn tinh tế.
+            - generic [ref=e97]:
+              - link "1900 6789" [ref=e98] [cursor=pointer]:
+                - /url: tel:19006789
+              - link "contact@lahoa.vn" [ref=e101] [cursor=pointer]:
+                - /url: mailto:contact@lahoa.vn
+              - generic [ref=e104]: 123 Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh
+          - generic [ref=e107]:
+            - heading "Khám phá" [level=2] [ref=e108]
+            - navigation "Liên kết cửa hàng" [ref=e109]:
+              - link "Cửa hàng" [ref=e110] [cursor=pointer]:
+                - /url: /products
+              - link "Hoa sinh nhật" [ref=e111] [cursor=pointer]:
+                - /url: /products?category=hoa-sinh-nhat
+              - link "Hoa tình yêu" [ref=e112] [cursor=pointer]:
+                - /url: /products?category=hoa-tinh-yeu
+              - link "Câu chuyện Lá & Hoa" [ref=e113] [cursor=pointer]:
+                - /url: /about
+              - link "Liên hệ" [ref=e114] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e115]:
+            - heading "Thông tin" [level=2] [ref=e116]
+            - navigation "Chính sách cửa hàng" [ref=e117]:
+              - link "Giao hàng" [ref=e118] [cursor=pointer]:
+                - /url: /policies/shipping
+              - link "Thanh toán" [ref=e119] [cursor=pointer]:
+                - /url: /policies/payment
+              - link "Đổi trả" [ref=e120] [cursor=pointer]:
+                - /url: /policies/return
+        - generic [ref=e121]:
+          - paragraph [ref=e122]: © 2026 Lá & Hoa. Tất cả quyền được bảo lưu.
+          - paragraph [ref=e123]: Hoa tươi, thiết kế tại TP. Hồ Chí Minh.
+  - alert [ref=e124]

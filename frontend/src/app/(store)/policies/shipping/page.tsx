@@ -1,0 +1,4 @@
+import { PolicyPage } from "@/components/content/policy-page";
+
+export const metadata = { title: "Chính sách giao hàng" };
+export default function ShippingPolicyPage() { return <PolicyPage eyebrow="Chính sách" title="Giao hoa." introduction="Thời gian và chi phí cuối cùng được hiển thị trong đơn trước khi bạn xác nhận." sections={[{ title: "Khu vực và thời gian", content: "Dịch vụ giao hoa trong 2 giờ áp dụng tại khu vực nội thành TP. Hồ Chí Minh và Hà Nội. Khả năng đáp ứng phụ thuộc địa chỉ, thời điểm đặt và tình trạng hoa." }, { title: "Khung giờ giao", content: "Bạn có thể chọn khung giờ sáng, chiều hoặc tối ở trang sản phẩm và bước thanh toán. Cửa hàng xử lý theo khung giờ đã xác nhận trong đơn." }, { title: "Phí giao hàng", content: "Phí giao hàng được tính trong tóm tắt đơn. Mọi thay đổi liên quan đến địa chỉ hoặc thời gian cần được xác nhận với cửa hàng trước khi giao." }]} />; }

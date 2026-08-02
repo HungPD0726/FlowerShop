@@ -1,0 +1,5 @@
+[     183ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3000/favicon.ico:0
+[     249ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fauth-still-life.png&w=750&q=75:0
+[    8283ms] [ERROR] Failed to load resource: the server responded with a status of 400 (Bad Request) @ http://127.0.0.1:3000/_next/image?url=%2Fimages%2Fcampaign%2Fauth-still-life.png&w=384&q=75:0
+[   22175ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/v1/admin/dashboard/summary:0
+[   25541ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/v1/admin/dashboard/summary:0

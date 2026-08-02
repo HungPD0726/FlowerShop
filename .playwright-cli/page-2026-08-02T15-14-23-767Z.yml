@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]: 🌸 Giao hoa hỏa tốc trong 2 giờ tại TPHCM & Hà Nội | Miễn phí thiệp chúc mừng cao cấp
+      - generic [ref=e6]:
+        - link "Lá & Hoa Florist & Gift Shop" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e14]:
+            - generic [ref=e15]: Lá & Hoa
+            - generic [ref=e16]: Florist & Gift Shop
+        - textbox "Tìm kiếm mẫu hoa tươi, giỏ hoa, chủ đề..." [ref=e18]
+        - navigation [ref=e22]:
+          - link "Trang chủ" [ref=e23] [cursor=pointer]:
+            - /url: /
+          - link "Sản phẩm" [ref=e24] [cursor=pointer]:
+            - /url: /products
+          - link "Hoa Sinh Nhật" [ref=e25] [cursor=pointer]:
+            - /url: /products?category=hoa-sinh-nhat
+          - link "Hoa Tình Yêu" [ref=e26] [cursor=pointer]:
+            - /url: /products?category=hoa-tinh-yeu
+          - link "Về chúng tôi" [ref=e27] [cursor=pointer]:
+            - /url: /about
+          - link "Liên hệ" [ref=e28] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e29]:
+          - link "Đăng nhập" [ref=e30] [cursor=pointer]:
+            - /url: /login
+          - button "Giỏ hàng" [ref=e34] [cursor=pointer]
+    - main [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Cửa Hàng Hoa Tươi Nghệ Thuật Cao Cấp
+            - heading "Trao hoa – Gửi trọn yêu thương" [level=1] [ref=e47]
+            - paragraph [ref=e48]: Những bó hoa tươi được thiết kế thủ công tinh tế cho từng khoảnh khắc đáng nhớ trong cuộc sống của bạn.
+            - generic [ref=e49]:
+              - link [ref=e50] [cursor=pointer]:
+                - /url: /products
+                - button "Đặt Hoa Ngay" [ref=e51]
+              - link [ref=e54] [cursor=pointer]:
+                - /url: /products?category=hoa-sinh-nhat
+                - button "Bộ Sưu Tập Sinh Nhật" [ref=e55]
+            - generic [ref=e56]:
+              - generic [ref=e61]:
+                - heading "Giao hoa 2H" [level=5] [ref=e62]
+                - paragraph [ref=e63]: TPHCM & Hà Nội
+              - generic [ref=e68]:
+                - heading "Hoa tươi 100%" [level=5] [ref=e69]
+                - paragraph [ref=e70]: Cam kết đổi trả
+              - generic [ref=e74]:
+                - heading "Thiệp miễn phí" [level=5] [ref=e75]
+                - paragraph [ref=e76]: In lời nhắn riêng
+          - generic [ref=e78]:
+            - img "Lá & Hoa Hero Bouquet" [ref=e79]
+            - generic [ref=e81]:
+              - text: Mẫu Hoa Nổi Bật
+              - heading "Bó Hoa Hồng Red Ecuador" [level=4] [ref=e82]
+              - paragraph [ref=e83]: Biểu tượng cho tình yêu vĩnh cửu & rạng rỡ
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - text: Được Yêu Thích Nhất
+              - heading "Sản Phẩm Bán Chạy" [level=2] [ref=e88]
+            - link "Xem tất cả" [ref=e89] [cursor=pointer]:
+              - /url: /products?sort=bestseller
+          - paragraph [ref=e93]: Đang cập nhật sản phẩm bán chạy...
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]:
+              - text: Thiết Kế Độc Quyền
+              - heading "Bộ Sưu Tập Nổi Bật" [level=2] [ref=e98]
+            - link "Khám phá thêm" [ref=e99] [cursor=pointer]:
+              - /url: /products
+          - paragraph [ref=e103]: Đang cập nhật sản phẩm nổi bật...
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - heading "Tại Sao Chọn Lá & Hoa?" [level=2] [ref=e109]
+            - paragraph [ref=e110]: Dịch vụ điện hoa uy tín chất lượng hàng đầu với trải nghiệm tận tâm
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - heading "Giao Hoa Hỏa Tốc 2H" [level=4] [ref=e118]
+              - paragraph [ref=e119]: Đảm bảo giao hoa tươi chuẩn mẫu đúng hẹn tận tay người nhận tại TP.HCM & Hà Nội.
+            - generic [ref=e120]:
+              - heading "Hoa Tươi Chọn Lọc 100%" [level=4] [ref=e124]
+              - paragraph [ref=e125]: Nguồn hoa nhập khẩu & đà lạt tươi mới mỗi ngày. Cam kết hoàn tiền nếu hoa bị dập héo.
+            - generic [ref=e126]:
+              - heading "Tặng Thiệp & Chụp Ảnh" [level=4] [ref=e132]
+              - paragraph [ref=e133]: Gửi ảnh sản phẩm trước khi giao & tặng kèm thiệp thiết kế cao cấp cho từng thông điệp.
+    - contentinfo [ref=e134]:
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]: Lá & Hoa
+            - paragraph [ref=e146]: “Trao hoa – Gửi trọn yêu thương” Cửa hàng hoa tươi nghệ thuật cao cấp. Chuyên thiết kế hoa sinh nhật, hoa tình yêu, hoa cưới và sự kiện sang trọng.
+            - generic [ref=e147]:
+              - generic [ref=e148]: "Zalo: 090.123.4567"
+              - generic [ref=e149]: "Messenger: /lahoaftorist"
+          - generic [ref=e150]:
+            - heading "Danh Mục Hoa" [level=4] [ref=e151]
+            - list [ref=e152]:
+              - listitem [ref=e153]:
+                - link "Hoa Sinh Nhật" [ref=e154] [cursor=pointer]:
+                  - /url: /products?category=hoa-sinh-nhat
+              - listitem [ref=e155]:
+                - link "Hoa Tình Yêu & Lễ Valentine" [ref=e156] [cursor=pointer]:
+                  - /url: /products?category=hoa-tinh-yeu
+              - listitem [ref=e157]:
+                - link "Hoa Khai Trương Hồng Phát" [ref=e158] [cursor=pointer]:
+                  - /url: /products?category=hoa-khai-truong
+              - listitem [ref=e159]:
+                - link "Hoa Cầm Tay Cô Dâu" [ref=e160] [cursor=pointer]:
+                  - /url: /products?category=hoa-cuoi
+              - listitem [ref=e161]:
+                - link "Bó Hoa Tươi Cao Cấp" [ref=e162] [cursor=pointer]:
+                  - /url: /products?category=hoa-bo
+          - generic [ref=e163]:
+            - heading "Hỗ Trợ Khách Hàng" [level=4] [ref=e164]
+            - list [ref=e165]:
+              - listitem [ref=e166]:
+                - link "Chính sách giao hàng 2h" [ref=e167] [cursor=pointer]:
+                  - /url: /policies/shipping
+              - listitem [ref=e168]:
+                - link "Hướng dẫn thanh toán & COD" [ref=e169] [cursor=pointer]:
+                  - /url: /policies/payment
+              - listitem [ref=e170]:
+                - link "Chính sách đổi trả hoa tươi" [ref=e171] [cursor=pointer]:
+                  - /url: /policies/return
+              - listitem [ref=e172]:
+                - link "Giới thiệu cửa hàng" [ref=e173] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e174]:
+                - link "Liên hệ tư vấn cắm hoa theo yêu cầu" [ref=e175] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e176]:
+            - heading "Thông Tin Cửa Hàng" [level=4] [ref=e177]
+            - generic [ref=e178]:
+              - generic [ref=e179]: 123 Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh
+              - generic [ref=e184]: "Hotline: 1900 6789 / 0901 234 567"
+              - generic [ref=e188]: "Email: contact@lahoa.vn"
+        - generic [ref=e193]:
+          - paragraph [ref=e194]: © 2026 Lá & Hoa Florist. Tất cả quyền được bảo lưu.
+          - paragraph [ref=e195]: Thiết kế với cho từng khoảnh khắc ý nghĩa.
+  - alert [ref=e198]

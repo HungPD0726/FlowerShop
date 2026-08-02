@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - link "Lá & Hoa Admin Backoffice" [ref=e5] [cursor=pointer]:
+          - /url: /admin/dashboard
+          - generic [ref=e12]:
+            - text: Lá & Hoa
+            - generic [ref=e13]: Admin Backoffice
+        - navigation [ref=e14]:
+          - link "Dashboard Báo Cáo" [ref=e15] [cursor=pointer]:
+            - /url: /admin/dashboard
+          - link "Quản Lý Sản Phẩm" [ref=e22] [cursor=pointer]:
+            - /url: /admin/products
+          - link "Quản Lý Đơn Hàng" [ref=e27] [cursor=pointer]:
+            - /url: /admin/orders
+          - link "Nhật Ký Tồn Kho" [ref=e33] [cursor=pointer]:
+            - /url: /admin/inventory
+          - link "Mã Giảm Giá" [ref=e39] [cursor=pointer]:
+            - /url: /admin/coupons
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: A
+          - generic [ref=e46]:
+            - generic [ref=e47]: Quản Trị Viên
+            - generic [ref=e48]: System Admin
+        - generic [ref=e49]:
+          - link "Về Store" [ref=e50] [cursor=pointer]:
+            - /url: /
+          - button "Đăng xuất" [ref=e51] [cursor=pointer]
+    - generic [ref=e52]:
+      - banner [ref=e53]:
+        - heading "Trang Quản Lý Hệ Thống" [level=2] [ref=e54]
+        - generic [ref=e55]: "Environment: Production"
+      - main [ref=e56]
+  - alert [ref=e63]

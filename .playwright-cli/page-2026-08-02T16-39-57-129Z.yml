@@ -1,0 +1,117 @@
+- generic:
+  - link:
+    - /url: "#main-content"
+    - text: Bỏ qua điều hướng
+  - generic:
+    - banner:
+      - generic:
+        - link:
+          - /url: /
+          - generic: "&"
+          - generic: Lá & Hoa
+        - generic:
+          - link:
+            - /url: /login
+          - button
+          - button [expanded]
+    - main:
+      - generic:
+        - generic:
+          - paragraph: Thiết kế hoa theo từng dịp
+          - heading [level=1]: Hoa nói thay điều bạn muốn gửi.
+          - paragraph: Bó hoa thủ công, giao đúng hẹn và kèm lời nhắn riêng của bạn.
+          - generic:
+            - link:
+              - /url: /products
+              - text: Chọn hoa
+            - link:
+              - /url: /about
+              - text: Xem câu chuyện
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=2]: Mỗi bó hoa bắt đầu từ người nhận.
+            - paragraph: Chúng tôi chọn hoa trong ngày, phối màu theo dịp và hoàn thiện từng chi tiết trước giờ giao.
+            - link:
+              - /url: /about
+              - text: Về Lá & Hoa
+      - generic:
+        - generic:
+          - generic:
+            - heading [level=3]: Giao hoa trong 2 giờ
+            - paragraph: Áp dụng tại khu vực nội thành TP.HCM và Hà Nội.
+          - generic:
+            - heading [level=3]: Xác nhận trước khi giao
+            - paragraph: Nhận ảnh thành phẩm để kiểm tra thiết kế của bạn.
+          - generic:
+            - heading [level=3]: Thiệp viết riêng
+            - paragraph: Thêm lời nhắn miễn phí cho từng người nhận.
+    - contentinfo:
+      - generic:
+        - generic:
+          - generic:
+            - link:
+              - /url: /
+              - text: Lá & Hoa
+            - paragraph: Hoa tươi thiết kế thủ công cho sinh nhật, tình yêu, khai trương và những dịp cần một lời nhắn tinh tế.
+            - generic:
+              - link:
+                - /url: tel:19006789
+                - text: 1900 6789
+              - link:
+                - /url: mailto:contact@lahoa.vn
+                - text: contact@lahoa.vn
+              - generic: 123 Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh
+          - generic:
+            - heading [level=2]: Khám phá
+            - navigation:
+              - link:
+                - /url: /products
+                - text: Cửa hàng
+              - link:
+                - /url: /products?category=hoa-sinh-nhat
+                - text: Hoa sinh nhật
+              - link:
+                - /url: /products?category=hoa-tinh-yeu
+                - text: Hoa tình yêu
+              - link:
+                - /url: /about
+                - text: Câu chuyện Lá & Hoa
+              - link:
+                - /url: /contact
+                - text: Liên hệ
+          - generic:
+            - heading [level=2]: Thông tin
+            - navigation:
+              - link:
+                - /url: /policies/shipping
+                - text: Giao hàng
+              - link:
+                - /url: /policies/payment
+                - text: Thanh toán
+              - link:
+                - /url: /policies/return
+                - text: Đổi trả
+        - generic:
+          - paragraph: © 2026 Lá & Hoa. Tất cả quyền được bảo lưu.
+          - paragraph: Hoa tươi, thiết kế tại TP. Hồ Chí Minh.
+  - alert
+  - dialog [ref=f1e99]:
+    - generic [ref=f1e100]:
+      - heading "Điều hướng" [level=2] [ref=f1e101]
+      - paragraph [ref=f1e102]: Tìm hoa theo dịp hoặc khám phá toàn bộ cửa hàng.
+    - button "Đóng" [active] [ref=f1e103] [cursor=pointer]
+    - generic [ref=f1e106]:
+      - textbox "Tìm kiếm sản phẩm" [ref=f1e110]:
+        - /placeholder: Tên hoa, dịp tặng...
+      - navigation "Điều hướng di động" [ref=f1e111]:
+        - link "Trang chủ" [ref=f1e112] [cursor=pointer]:
+          - /url: /
+        - link "Cửa hàng" [ref=f1e113] [cursor=pointer]:
+          - /url: /products
+        - link "Sinh nhật" [ref=f1e114] [cursor=pointer]:
+          - /url: /products?category=hoa-sinh-nhat
+        - link "Câu chuyện" [ref=f1e115] [cursor=pointer]:
+          - /url: /about
+        - link "Liên hệ" [ref=f1e116] [cursor=pointer]:
+          - /url: /contact

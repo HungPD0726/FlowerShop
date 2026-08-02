@@ -1,0 +1,17 @@
+export const queryKeys = {
+  categories: ["categories"] as const,
+  products: (params?: Record<string, unknown>) => ["products", params] as const,
+  product: (slugOrId: string | number) => ["product", slugOrId] as const,
+  reviews: (productId: number) => ["reviews", productId] as const,
+  productReviews: (productId: number) => ["reviews", productId] as const,
+  relatedProducts: (productId: number) => ["products", productId, "related"] as const,
+  cart: ["cart"] as const,
+  orders: (page = 0) => ["orders", page] as const,
+  order: (code: string) => ["order", code] as const,
+  addresses: ["addresses"] as const,
+  adminSummary: ["admin", "summary"] as const,
+  adminProducts: (keyword = "", page = 0) => ["admin", "products", keyword, page] as const,
+  adminOrders: (keyword = "", status = "", page = 0) => ["admin", "orders", keyword, status, page] as const,
+  adminCategories: ["admin", "categories"] as const,
+  adminCoupons: ["admin", "coupons"] as const,
+};

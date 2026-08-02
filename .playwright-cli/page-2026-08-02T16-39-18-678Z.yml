@@ -1,0 +1,92 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua điều hướng" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Lá & Hoa, trang chủ" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: "&"
+          - generic [ref=e8]: Lá & Hoa
+        - navigation "Điều hướng chính" [ref=e9]:
+          - link "Trang chủ" [ref=e10] [cursor=pointer]:
+            - /url: /
+          - link "Cửa hàng" [ref=e11] [cursor=pointer]:
+            - /url: /products
+          - link "Sinh nhật" [ref=e12] [cursor=pointer]:
+            - /url: /products?category=hoa-sinh-nhat
+          - link "Câu chuyện" [ref=e13] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=e14]:
+          - button "Tìm kiếm" [ref=e15] [cursor=pointer]
+          - link "Đăng nhập" [ref=e18] [cursor=pointer]:
+            - /url: /login
+          - button "Giỏ hàng, 0 sản phẩm" [ref=e21] [cursor=pointer]
+    - main [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Thiết kế hoa theo từng dịp
+          - heading "Hoa nói thay điều bạn muốn gửi." [level=1] [ref=e28]
+          - paragraph [ref=e29]: Bó hoa thủ công, giao đúng hẹn và kèm lời nhắn riêng của bạn.
+          - generic [ref=e30]:
+            - link "Chọn hoa" [ref=e31] [cursor=pointer]:
+              - /url: /products
+            - link "Xem câu chuyện" [ref=e34] [cursor=pointer]:
+              - /url: /about
+        - img "Bó hoa anthurium đỏ, mao lương trắng và delphinium cobalt" [ref=e37]
+      - generic [ref=e39]:
+        - img "Nghệ nhân Lá & Hoa đang cắt tỉa và sắp xếp hoa" [ref=e42]
+        - generic [ref=e43]:
+          - heading "Mỗi bó hoa bắt đầu từ người nhận." [level=2] [ref=e44]
+          - paragraph [ref=e45]: Chúng tôi chọn hoa trong ngày, phối màu theo dịp và hoàn thiện từng chi tiết trước giờ giao.
+          - link "Về Lá & Hoa" [ref=e46] [cursor=pointer]:
+            - /url: /about
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - heading "Giao hoa trong 2 giờ" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Áp dụng tại khu vực nội thành TP.HCM và Hà Nội.
+        - generic [ref=e57]:
+          - heading "Xác nhận trước khi giao" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Nhận ảnh thành phẩm để kiểm tra thiết kế của bạn.
+        - generic [ref=e63]:
+          - heading "Thiệp viết riêng" [level=3] [ref=e67]
+          - paragraph [ref=e68]: Thêm lời nhắn miễn phí cho từng người nhận.
+    - contentinfo [ref=e69]:
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - link "Lá & Hoa" [ref=e73] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=e74]: Hoa tươi thiết kế thủ công cho sinh nhật, tình yêu, khai trương và những dịp cần một lời nhắn tinh tế.
+            - generic [ref=e75]:
+              - link "1900 6789" [ref=e76] [cursor=pointer]:
+                - /url: tel:19006789
+              - link "contact@lahoa.vn" [ref=e79] [cursor=pointer]:
+                - /url: mailto:contact@lahoa.vn
+              - generic [ref=e82]: 123 Nguyễn Thị Minh Khai, Quận 1, TP. Hồ Chí Minh
+          - generic [ref=e85]:
+            - heading "Khám phá" [level=2] [ref=e86]
+            - navigation "Liên kết cửa hàng" [ref=e87]:
+              - link "Cửa hàng" [ref=e88] [cursor=pointer]:
+                - /url: /products
+              - link "Hoa sinh nhật" [ref=e89] [cursor=pointer]:
+                - /url: /products?category=hoa-sinh-nhat
+              - link "Hoa tình yêu" [ref=e90] [cursor=pointer]:
+                - /url: /products?category=hoa-tinh-yeu
+              - link "Câu chuyện Lá & Hoa" [ref=e91] [cursor=pointer]:
+                - /url: /about
+              - link "Liên hệ" [ref=e92] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e93]:
+            - heading "Thông tin" [level=2] [ref=e94]
+            - navigation "Chính sách cửa hàng" [ref=e95]:
+              - link "Giao hàng" [ref=e96] [cursor=pointer]:
+                - /url: /policies/shipping
+              - link "Thanh toán" [ref=e97] [cursor=pointer]:
+                - /url: /policies/payment
+              - link "Đổi trả" [ref=e98] [cursor=pointer]:
+                - /url: /policies/return
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: © 2026 Lá & Hoa. Tất cả quyền được bảo lưu.
+          - paragraph [ref=e101]: Hoa tươi, thiết kế tại TP. Hồ Chí Minh.
+  - alert [ref=e102]

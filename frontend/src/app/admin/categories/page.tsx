@@ -1,0 +1,38 @@
+"use client";
+
+import Image from "next/image";
+import { FormEvent, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
+import { PencilSimple, Plus, Trash } from "@phosphor-icons/react";
+import { adminService } from "@/services/admin.service";
+import { categorySchema, CategoryFormValues } from "@/schemas/forms";
+import { Category } from "@/types";
+import { queryKeys } from "@/lib/query-keys";
+import { useUIStore } from "@/stores/useUIStore";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog";
+import { StatusBadge } from "@/components/ui/status-badge";
+import { EmptyState, ErrorState, Skeleton } from "@/components/ui/feedback-state";
+
+const empty: CategoryFormValues = { name: "", slug: "", description: "", imageUrl: "", isActive: true, displayOrder: 0 };
+export default function AdminCategoriesPage() {
+  const client = useQueryClient();
+  const { addToast } = useUIStore();
+  const [open, setOpen] = useState(false);
+  const [editing, setEditing] = useState<Category | null>(null);
+  const [values, setValues] = useState<CategoryFormValues>(empty);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [saving, setSaving] = useState(false);
+  const query = useQuery({ queryKey: queryKeys.adminCategories, queryFn: () => adminService.getAdminCategories() });
+  function show(category?: Category) { setEditing(category || null); setValues(category ? { name: category.name, slug: category.slug, description: category.description || "", imageUrl: category.imageUrl || "", isActive: category.isActive, displayOrder: category.displayOrder } : empty); setErrors({}); setOpen(true); }
+  function update<K extends keyof CategoryFormValues>(field: K, value: CategoryFormValues[K]) { setValues((current) => ({ ...current, [field]: value })); setErrors((current) => ({ ...current, [field]: "" })); }
+  async function save(event: FormEvent) { event.preventDefault(); const parsed = categorySchema.safeParse(values); if (!parsed.success) { const next: Record<string, string> = {}; parsed.error.issues.forEach((issue) => { next[issue.path.join(".")] = issue.message; }); setErrors(next); return; } setSaving(true); try { const response = editing ? await adminService.updateCategory(editing.id, parsed.data) : await adminService.createCategory(parsed.data); if (!response.success) { setErrors(response.errors || {}); throw new Error(response.message); } await client.invalidateQueries({ queryKey: queryKeys.adminCategories }); setOpen(false); addToast("success", editing ? "Danh mục đã được cập nhật." : "Danh mục đã được tạo."); } catch (error) { if (isAxiosError(error)) setErrors(error.response?.data?.errors || {}); addToast("error", "Chưa thể lưu danh mục."); } finally { setSaving(false); } }
+  async function remove(id: number) { try { await adminService.deleteCategory(id); await client.invalidateQueries({ queryKey: queryKeys.adminCategories }); addToast("success", "Danh mục đã được xóa."); } catch { addToast("error", "Chưa thể xóa danh mục. Hãy kiểm tra sản phẩm đang sử dụng."); } }
+  return <div className="space-y-6"><header className="flex flex-wrap items-end justify-between gap-4"><div><h1 className="text-2xl font-extrabold tracking-[-0.02em]">Danh mục</h1><p className="mt-2 text-sm text-muted">Quản lý nhóm sản phẩm hiển thị trên storefront.</p></div><Button className="gap-2" onClick={() => show()}><Plus /> Tạo danh mục</Button></header>{query.isLoading ? <Skeleton className="h-96" /> : query.isError ? <ErrorState onRetry={() => query.refetch()} /> : !query.data?.data?.length ? <EmptyState title="Chưa có danh mục" description="Tạo danh mục đầu tiên để phân loại sản phẩm." /> : <section className="overflow-hidden rounded-2xl border border-line bg-surface"><div className="hidden overflow-x-auto md:block"><table className="w-full text-left text-xs"><thead className="border-b border-line bg-canvas text-muted"><tr><th className="p-4">Danh mục</th><th className="p-4">Slug</th><th className="p-4">Thứ tự</th><th className="p-4">Trạng thái</th><th className="p-4 text-right">Thao tác</th></tr></thead><tbody className="divide-y divide-line">{query.data.data.map((category) => <tr key={category.id}><td className="p-4"><div className="flex items-center gap-3"><div className="relative h-12 w-12 overflow-hidden rounded-lg bg-canvas">{category.imageUrl && <Image src={category.imageUrl} alt="" fill sizes="48px" className="object-cover" />}</div><span className="font-bold">{category.name}</span></div></td><td className="p-4 font-mono text-muted">{category.slug}</td><td className="p-4">{category.displayOrder}</td><td className="p-4"><StatusBadge status={category.isActive ? "ACTIVE" : "INACTIVE"} /></td><td className="p-4"><div className="flex justify-end"><Button variant="ghost" size="sm" onClick={() => show(category)}><PencilSimple /><span className="sr-only">Sửa</span></Button><ConfirmDialog trigger={<Button variant="ghost" size="sm" className="text-danger"><Trash /><span className="sr-only">Xóa</span></Button>} title="Xóa danh mục?" description="Danh mục chỉ có thể xóa khi không còn sản phẩm liên kết." confirmLabel="Xóa" destructive onConfirm={() => remove(category.id)} /></div></td></tr>)}</tbody></table></div><div className="divide-y divide-line md:hidden">{query.data.data.map((category) => <article key={category.id} className="p-5"><div className="flex justify-between gap-4"><div><p className="font-bold">{category.name}</p><p className="mt-1 font-mono text-xs text-muted">{category.slug}</p></div><StatusBadge status={category.isActive ? "ACTIVE" : "INACTIVE"} /></div><div className="mt-4 flex justify-end"><Button variant="ghost" size="sm" onClick={() => show(category)}><PencilSimple /> Sửa</Button><ConfirmDialog trigger={<Button variant="ghost" size="sm" className="text-danger"><Trash /> Xóa</Button>} title="Xóa danh mục?" description="Danh mục chỉ có thể xóa khi không còn sản phẩm liên kết." confirmLabel="Xóa" destructive onConfirm={() => remove(category.id)} /></div></article>)}</div></section>}
+    <Dialog open={open} onOpenChange={setOpen}><DialogContent title={editing ? "Sửa danh mục" : "Tạo danh mục"}><form onSubmit={save} noValidate className="space-y-4"><Input label="Tên danh mục" value={values.name} error={errors.name} onChange={(event) => update("name", event.target.value)} /><Input label="Slug" helperText="Có thể để trống để backend tự tạo." value={values.slug || ""} error={errors.slug} onChange={(event) => update("slug", event.target.value)} /><Textarea label="Mô tả" maxLength={300} value={values.description || ""} error={errors.description} onChange={(event) => update("description", event.target.value)} /><Input label="URL hình ảnh" value={values.imageUrl || ""} error={errors.imageUrl} onChange={(event) => update("imageUrl", event.target.value)} /><Input label="Thứ tự hiển thị" type="number" min="0" value={values.displayOrder} error={errors.displayOrder} onChange={(event) => update("displayOrder", Number(event.target.value))} /><label className="flex min-h-11 items-center gap-3 text-sm font-bold"><input type="checkbox" className="h-4 w-4 accent-accent" checked={values.isActive} onChange={(event) => update("isActive", event.target.checked)} /> Đang hoạt động</label><div className="flex justify-end"><Button type="submit" isLoading={saving}>{editing ? "Lưu thay đổi" : "Tạo danh mục"}</Button></div></form></DialogContent></Dialog>
+  </div>;
+}
