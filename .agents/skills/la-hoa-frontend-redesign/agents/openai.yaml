@@ -1,0 +1,7 @@
+interface:
+  display_name: "Lá & Hoa Frontend Redesign"
+  short_description: "Điều phối redesign và QA giao diện Lá & Hoa"
+  default_prompt: "Use $la-hoa-frontend-redesign to audit and improve the requested Lá & Hoa frontend area without breaking APIs or the locked design system."
+
+policy:
+  allow_implicit_invocation: true

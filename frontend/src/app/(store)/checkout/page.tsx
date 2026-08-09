@@ -159,7 +159,7 @@ export default function CheckoutPage() {
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-muted">Địa chỉ đã lưu</p>
                 <div className="flex gap-3 overflow-x-auto pb-2">
                   {addressesQuery.data.data.map((address) => (
-                    <button key={address.id} type="button" aria-pressed={selectedAddress === address.id} onClick={() => applyAddress(address.id)} className={`min-w-64 rounded-[10px] border p-4 text-left text-xs leading-5 ${selectedAddress === address.id ? "border-accent bg-accent-soft" : "border-line bg-canvas"}`}>
+                    <button key={address.id} type="button" aria-pressed={selectedAddress === address.id} onClick={() => applyAddress(address.id)} className={`min-w-64 rounded-xl border p-4 text-left text-xs leading-5 ${selectedAddress === address.id ? "border-accent bg-accent-soft" : "border-line bg-canvas"}`}>
                       <span className="block font-bold text-ink">{address.recipientName}{address.isDefault ? " · Mặc định" : ""}</span>
                       <span className="mt-1 block text-muted">{address.detailAddress}, {address.ward}, {address.district}</span>
                     </button>
@@ -190,7 +190,7 @@ export default function CheckoutPage() {
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <Input label="Tên người gửi" disabled={hideSenderName} error={errors.senderName?.message} {...register("senderName")} />
-              <label className="flex min-h-11 cursor-pointer items-center gap-3 self-end rounded-[10px] border border-line bg-canvas px-4 text-sm font-semibold text-ink">
+              <label className="flex min-h-11 cursor-pointer items-center gap-3 self-end rounded-xl border border-line bg-canvas px-4 text-sm font-semibold text-ink">
                 <input type="checkbox" className="h-4 w-4 accent-accent" {...register("hideSenderName")} /> Gửi ẩn danh
               </label>
             </div>
@@ -210,7 +210,7 @@ export default function CheckoutPage() {
           </FormSection>
         </div>
 
-        <aside className="rounded-2xl border border-line bg-surface p-6 lg:sticky lg:top-24">
+        <aside className="rounded-[20px] border border-line bg-surface p-6 shadow-soft lg:sticky lg:top-24">
           <h2 className="font-serif text-2xl font-semibold text-ink">Đơn hàng</h2>
           <div className="mt-5 max-h-64 divide-y divide-line overflow-y-auto">
             {cart.items.map((item) => (
@@ -235,10 +235,10 @@ export default function CheckoutPage() {
 }
 
 function FormSection({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
-  return <section className="rounded-2xl border border-line bg-surface p-5 sm:p-7"><header className="mb-6 flex items-center gap-4 border-b border-line pb-5"><span className="text-xs font-bold tracking-[0.16em] text-accent">{number}</span><h2 className="font-serif text-2xl font-semibold text-ink">{title}</h2></header>{children}</section>;
+  return <section className="rounded-[20px] border border-line bg-surface p-5 sm:p-7"><header className="mb-6 flex items-center gap-4 border-b border-line pb-5"><span className="text-xs font-bold tracking-[0.16em] text-accent">{number}</span><h2 className="font-serif text-2xl font-semibold text-ink">{title}</h2></header>{children}</section>;
 }
 
 function PaymentOption({ value, current, title, description, icon, register }: { value: "COD" | "BANK_TRANSFER"; current: string; title: string; description: string; icon: React.ReactNode; register: UseFormRegisterReturn<"paymentMethod"> }) {
   const selected = current === value;
-  return <label className={`relative flex min-h-24 cursor-pointer items-start gap-3 rounded-[10px] border p-4 ${selected ? "border-accent bg-accent-soft" : "border-line bg-canvas"}`}><input type="radio" value={value} className="sr-only" {...register} /><span className="mt-0.5 text-accent">{icon}</span><span><span className="block text-sm font-bold text-ink">{title}</span><span className="mt-1 block text-xs leading-5 text-muted">{description}</span></span>{selected && <Check className="absolute right-3 top-3 text-accent" weight="bold" aria-hidden="true" />}</label>;
+  return <label className={`relative flex min-h-24 cursor-pointer items-start gap-3 rounded-xl border p-4 ${selected ? "border-accent bg-accent-soft" : "border-line bg-canvas"}`}><input type="radio" value={value} className="sr-only" {...register} /><span className="mt-0.5 text-accent">{icon}</span><span><span className="block text-sm font-bold text-ink">{title}</span><span className="mt-1 block text-xs leading-5 text-muted">{description}</span></span>{selected && <Check className="absolute right-3 top-3 text-accent" weight="bold" aria-hidden="true" />}</label>;
 }

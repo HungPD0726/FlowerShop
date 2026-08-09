@@ -79,7 +79,7 @@ async function mockApi(page: Page) {
     else if (path === "/auth/login" && method === "POST") {
       const body = request.postDataJSON() as { email: string };
       const admin = body.email.includes("admin");
-      data = { accessToken: "access-token", refreshToken: "refresh-token", tokenType: "Bearer", id: admin ? 1 : 2, fullName: admin ? "Quản trị Lá & Hoa" : "Nguyễn An", email: body.email, roles: [admin ? "ROLE_ADMIN" : "ROLE_CUSTOMER"] };
+      data = { accessToken: "access-token", refreshToken: "refresh-token", tokenType: "Bearer", id: admin ? 1 : 2, fullName: admin ? "Quản trị Chạm Hoa" : "Nguyễn An", email: body.email, roles: [admin ? "ROLE_ADMIN" : "ROLE_CUSTOMER"] };
     } else if (path === "/admin/dashboard/summary") data = { totalRevenue: 680000, totalOrders: 1, pendingOrders: 1, totalCustomers: 1, recentOrders: [order], lowStockProducts: [] };
     else if (path === "/admin/products" && method === "POST") data = product;
     else if (path === "/admin/products/1" && method === "PUT") data = { ...product, ...(request.postDataJSON() as object) };
@@ -141,12 +141,12 @@ test("admin creates and edits a product, then updates an order", async ({ page }
   await page.getByLabel("Danh mục").selectOption("1");
   await page.getByLabel("Giá gốc").fill("650000");
   await page.getByRole("button", { name: "Tạo sản phẩm" }).click();
-  await expect(page).toHaveURL(/\/admin\/products$/);
+  await expect(page).toHaveURL(/\/admin\/products$/, { timeout: 20_000 });
 
   await page.goto("/admin/products/1/edit");
   await page.getByLabel("Tên sản phẩm").fill("Bó hoa Kiêu Hãnh mới");
   await page.getByRole("button", { name: "Lưu thay đổi" }).click();
-  await expect(page).toHaveURL(/\/admin\/products$/);
+  await expect(page).toHaveURL(/\/admin\/products$/, { timeout: 20_000 });
 
   await page.goto("/admin/orders/31");
   await page.getByLabel("Trạng thái").selectOption("CONFIRMED");

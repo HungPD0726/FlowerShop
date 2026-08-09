@@ -403,3 +403,18 @@ BEGIN
     );
 END;
 GO
+
+-- 20. WISHLISTS TABLE
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'wishlists')
+BEGIN
+    CREATE TABLE wishlists (
+        id BIGINT IDENTITY(1,1) PRIMARY KEY,
+        user_id BIGINT NOT NULL,
+        product_id BIGINT NOT NULL,
+        created_at DATETIME2 DEFAULT SYSDATETIME(),
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+        FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+        CONSTRAINT uq_user_product UNIQUE (user_id, product_id)
+    );
+END;
+GO

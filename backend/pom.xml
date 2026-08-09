@@ -98,6 +98,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -125,6 +126,7 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <fork>true</fork>
+                    <executable>C:/Program Files/Android/openjdk/jdk-21.0.8/bin/javac</executable>
                     <compilerArgs>
                         <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
                         <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>

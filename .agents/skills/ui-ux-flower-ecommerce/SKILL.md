@@ -1,53 +1,58 @@
 ---
 name: ui-ux-flower-ecommerce
-description: Specialized UI/UX design guidelines and component patterns tailored for premium, elegant, feminine flower shop e-commerce applications ("Lá & Hoa").
----
-# Flower E-Commerce UI/UX Design Skill
-
-Use this skill when designing, building, or refining customer-facing and admin interfaces for the Flower Shop web application ("Lá & Hoa").
-
+description: Design and refine storefront, cart, checkout, auth, account, and admin experiences for the Lá & Hoa flower shop. Use when UI decisions depend on the brand, flower-delivery business rules, product variants, delivery scheduling, cards, inventory, or Vietnamese commerce content.
 ---
 
-## 1. Design Aesthetics & Core Principles
+# Lá & Hoa flower-commerce UI
 
-- **Boutique Elegance & Emotional Warmth**: Soft organic tones, rounded cards (`rounded-2xl`, `rounded-3xl`), glassmorphic overlays, and subtle micro-animations.
-- **Brand Messaging Spine**: "Trao hoa – Gửi trọn yêu thương" (Deliver Flowers – Send Complete Love).
-- **Flower Customization Focus**: Support bouquet size variants (Small, Medium, Large, Premium), custom delivery dates & time slots (08:00-12:00, 13:00-17:00, 18:00-21:00), and card messages (with anonymous sender toggle).
+## Brand lock
 
----
+- Direction: light botanical editorial with asymmetry, large flower photography, restrained ornament, and warm whitespace.
+- Canvas: #FBF4EE.
+- Surface: #FFFDFB.
+- Ink: #2D221E.
+- Muted: #786660.
+- Line: #F0D4C8.
+- Dusty rose accent: #9B3F50; hover #7E3040; soft #FCEBE5.
+- Display: Cormorant Garamond. Body and controls: Manrope.
+- Large containers: 28px. Media/cards: 20px. Inputs: 12px. Primary actions may use pill geometry.
+- Keep one light theme. Do not invent a dark mode.
 
-## 2. Color Palette & Typography Tokens
+Treat frontend/src/app/globals.css and frontend/tailwind.config.ts as the runtime source of truth if tokens change.
 
-### Color Palette
-- **Background (Cream Warmth)**: `#FAF7F1`
-- **Primary (Hunter Green)**: `#24483B` (Hover: `#1b372d`, Light: `#e8efe9`)
-- **Secondary (Rose Gold Accent)**: `#D8AAA5` (Light: `#f7ebe9`)
-- **Dark Text**: `#3B322E`
-- **Muted Text**: `#857A73`
-- **Danger Red**: `#B42318`
+## Commerce truth
 
-### Typography Pairing
-- **Headings & Display (`font-serif`)**: `Playfair Display`, `Cormorant Garamond`, serif.
-- **Body & Controls (`font-sans`)**: `Be Vietnam Pro`, `Inter`, sans-serif.
+- Render products, prices, discounts, ratings, inventory, coupons, revenue, and order metrics only from APIs.
+- Preserve variant stock, delivery date, valid time slot, greeting card, anonymous sender, address, payment, and order semantics.
+- Show a two-hour delivery claim only where current business content explicitly supports it.
+- Do not add fake promotions, testimonials, social links, newsletter claims, or unsupported features.
+- Keep Vietnamese as the primary language and avoid mixed English labels.
 
----
+## Storefront patterns
 
-## 3. Standard Component Patterns
+- Use an editorial product rhythm rather than repeated equal-card grids.
+- Keep quick-add reachable on touch and expose pending/out-of-stock feedback.
+- Use a desktop filter rail and mobile drawer with URL-synchronized filters.
+- Keep the order summary sticky only where it does not obscure fields or mobile actions.
+- Use local campaign imagery; use API imagery for products.
 
-### A. Delivery Slot & Date Picker
-- Interactive date selector + time slot selector (Morning, Afternoon, Evening).
-- Ensures delivery commitment within 2 hours in major cities.
+## Cart and checkout
 
-### B. Card Message Form
-- Free greeting card text area + sender name + anonymous sender checkbox toggle ("Giấu tên người gửi").
+- Keep quantity updates pending per line and recover from API errors.
+- Validate fields inline and preserve real radio semantics for payment methods.
+- Keep delivery and greeting options adjacent to the item or checkout context they affect.
+- Confirm coupons through the existing order workflow; never imply a discount before backend confirmation.
 
-### C. Slide-Over Cart Drawer
-- Smooth slide-in cart overlay with quantity steppers and quick checkout CTA.
+## Account and admin
 
----
+- Account remains editorial but compact and task-focused.
+- Admin uses the same tokens with sans-serif typography, lower decoration, responsive tables/cards, and real API data.
+- Do not add users, reports, staffing, or other modules without backend support.
 
-## 4. UI Pre-Flight Checklist
+## Accessibility and responsive gate
 
-- [ ] All prices formatted via `formatCurrency`.
-- [ ] Buttons have visible hover, active, and focus-visible states.
-- [ ] Mobile responsive layout tested.
+- Minimum 44px touch targets and visible focus indicators.
+- Dialogs and drawers require focus trap, Escape, labels, and focus return.
+- Respect prefers-reduced-motion and animate only transform/opacity.
+- Verify keyboard-only operation and no critical/serious axe findings.
+- Check 390x844, 768x1024, and 1440x900 with no horizontal overflow.

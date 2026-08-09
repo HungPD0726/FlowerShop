@@ -2,6 +2,7 @@ import "./globals.css";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import QueryProvider from "@/providers/QueryProvider";
 import { ToastContainer } from "@/components/ui/toast";
+import { brand } from "@/config/brand";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
@@ -20,14 +21,14 @@ const bodyFont = Manrope({
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: {
-    default: "Lá & Hoa | Hoa tươi thiết kế theo từng dịp",
-    template: "%s | Lá & Hoa",
+    default: `${brand.name} | Hoa tươi thiết kế theo từng dịp`,
+    template: `%s | ${brand.name}`,
   },
   description: "Hoa tươi thiết kế thủ công, giao trong ngày tại TP.HCM và Hà Nội.",
   openGraph: {
-    title: "Lá & Hoa",
-    description: "Hoa tươi thiết kế thủ công cho những lời muốn nói.",
-    images: ["/images/campaign/hero-editorial.png"],
+    title: brand.name,
+    description: brand.description,
+    images: ["/images/campaign/hero-blush.png"],
     locale: "vi_VN",
     type: "website",
   },

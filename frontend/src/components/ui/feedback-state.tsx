@@ -1,14 +1,15 @@
 "use client";
 
 import { ArrowClockwise, FlowerLotus } from "@phosphor-icons/react";
+import type { ReactNode } from "react";
 import { Button } from "./button";
 import { cn } from "@/utils/format";
 
 export function Skeleton({ className }: { className?: string }) {
-  return <div aria-hidden="true" className={cn("skeleton-shimmer rounded-2xl", className)} />;
+  return <div aria-hidden="true" className={cn("skeleton-shimmer rounded-[20px]", className)} />;
 }
 
-export function EmptyState({ title, description, action, className }: { title: string; description: string; action?: React.ReactNode; className?: string }) {
+export function EmptyState({ title, description, action, className }: { title: string; description: string; action?: ReactNode; className?: string }) {
   return (
     <div className={cn("surface-panel flex min-h-64 flex-col items-center justify-center px-6 py-12 text-center", className)}>
       <FlowerLotus size={34} weight="light" className="mb-5 text-accent" />

@@ -14,6 +14,8 @@ import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { StatusBadge } from "@/components/ui/status-badge";
 import { EmptyState, ErrorState, Skeleton } from "@/components/ui/feedback-state";
 
+import { LoyaltyBadge } from "@/components/account/loyalty-badge";
+
 export default function AccountOrdersPage() {
   const [page, setPage] = useState(0);
   const queryClient = useQueryClient();
@@ -30,8 +32,10 @@ export default function AccountOrdersPage() {
   }
 
   return (
-    <section className="rounded-2xl border border-line bg-surface p-5 sm:p-8">
-      <p className="eyebrow">Theo dõi từng bó hoa</p><h2 className="mt-3 font-serif text-4xl font-medium tracking-[-0.04em] text-ink">Đơn hàng của bạn.</h2>
+    <div className="space-y-6">
+      <LoyaltyBadge points={350} tierName="Thành viên Vàng (Gold)" />
+      <section className="rounded-2xl border border-line bg-surface p-5 sm:p-8">
+        <p className="eyebrow">Theo dõi từng bó hoa</p><h2 className="mt-3 font-serif text-4xl font-medium tracking-[-0.04em] text-ink">Đơn hàng của bạn.</h2>
       {query.isLoading ? <div className="mt-8 space-y-4"><Skeleton className="h-48" /><Skeleton className="h-48" /></div> : query.isError ? <div className="mt-8"><ErrorState onRetry={() => query.refetch()} /></div> : !result?.content.length ? <div className="mt-8"><EmptyState title="Bạn chưa có đơn hàng" description="Những đơn hoa đã đặt sẽ được lưu tại đây." action={<Button asChild><Link href="/products">Chọn hoa</Link></Button>} /></div> : (
         <div className="mt-8 space-y-4">
           {result.content.map((order) => (
@@ -48,5 +52,6 @@ export default function AccountOrdersPage() {
         </div>
       )}
     </section>
+    </div>
   );
 }

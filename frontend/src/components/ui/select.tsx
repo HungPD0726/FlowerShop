@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useId } from "react";
+import { forwardRef, useId, type SelectHTMLAttributes } from "react";
 import { cn } from "@/utils/format";
 
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
   helperText?: string;
 }
 
-export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ className, label, error, helperText, id, children, ...props }, ref) => {
     const generatedId = useId();
     const selectId = id || generatedId;
@@ -24,7 +24,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-invalid={Boolean(error)}
           aria-describedby={error || helperText ? messageId : undefined}
           className={cn(
-            "min-h-11 w-full rounded-[10px] border border-line bg-surface px-4 py-2.5 text-sm text-ink transition-[border-color,box-shadow] duration-300 ease-editorial focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10",
+            "min-h-11 w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-ink transition-[border-color,box-shadow] duration-300 ease-editorial focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10",
             error && "border-danger focus:border-danger focus:ring-danger/10",
             className
           )}

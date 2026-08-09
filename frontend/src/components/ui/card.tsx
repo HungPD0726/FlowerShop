@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
+import type { HTMLAttributes } from "react";
 import { cn } from "@/utils/format";
 
-export function Card({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function Card({ className, children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "rounded-2xl border border-line/80 bg-surface p-6 shadow-soft transition-[transform,box-shadow,border-color] duration-500 ease-editorial",
+        "rounded-[28px] border border-line/80 bg-surface p-6 shadow-soft transition-[transform,box-shadow,border-color] duration-300 ease-editorial",
         className
       )}
       {...props}
@@ -22,7 +22,7 @@ export function Badge({
   variant = "default",
   children,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement> & { variant?: "default" | "primary" | "secondary" | "danger" }) {
+}: HTMLAttributes<HTMLSpanElement> & { variant?: "default" | "primary" | "secondary" | "danger" }) {
   const variants = {
     default: "border-line bg-surface-muted text-ink",
     primary: "border-accent/20 bg-accent-soft text-accent",

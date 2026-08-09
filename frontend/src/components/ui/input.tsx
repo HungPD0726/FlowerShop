@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useId } from "react";
+import { forwardRef, useId, type InputHTMLAttributes } from "react";
 import { cn } from "@/utils/format";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
   helperText?: string;
 }
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, label, error, helperText, id, ...props }, ref) => {
     const generatedId = useId();
     const inputId = id || generatedId;
@@ -24,7 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           aria-invalid={Boolean(error)}
           aria-describedby={error || helperText ? messageId : undefined}
           className={cn(
-            "min-h-11 w-full rounded-[10px] border border-line bg-surface px-4 py-2.5 text-sm text-ink placeholder:text-muted/80 transition-[border-color,box-shadow,background-color] duration-300 ease-editorial focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10 disabled:cursor-not-allowed disabled:bg-surface-muted",
+            "min-h-11 w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-ink placeholder:text-muted/90 transition-[border-color,box-shadow,background-color] duration-300 ease-editorial focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/10 disabled:cursor-not-allowed disabled:bg-surface-muted",
             error && "border-danger focus:border-danger focus:ring-danger/10",
             className
           )}

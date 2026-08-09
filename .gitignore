@@ -18,6 +18,15 @@ frontend/.env.production.local
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
+frontend/tsconfig.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+frontend/output/
+
+# Local design references and browser QA artifacts
+frontend/design/
+.playwright-cli/
+output/
 
 # Java / Spring Boot / Backend
 backend/target/

@@ -14,7 +14,7 @@ export function ToastContainer() {
         <div
           key={toast.id}
           role={toast.type === "error" ? "alert" : "status"}
-          className={`flex items-center justify-between rounded-2xl border bg-surface p-4 text-sm text-ink shadow-float ${
+          className={`flex items-center justify-between rounded-[20px] border bg-surface p-4 text-sm text-ink shadow-float ${
             toast.type === "success" ? "border-success/20" : toast.type === "error" ? "border-danger/20" : "border-accent/20"
           }`}
         >

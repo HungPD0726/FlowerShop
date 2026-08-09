@@ -81,13 +81,13 @@ export default function CartPage() {
       <p className="eyebrow">Đơn hoa của bạn</p>
       <h1 className="mt-3 font-serif text-5xl font-medium tracking-[-0.045em] text-ink sm:text-6xl">Giỏ hàng.</h1>
       <div className="mt-10 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
-        <section aria-label="Sản phẩm trong giỏ" className="overflow-hidden rounded-2xl border border-line bg-surface">
+        <section aria-label="Sản phẩm trong giỏ" className="overflow-hidden rounded-[20px] border border-line bg-surface">
           <div className="divide-y divide-line">
             {cart.items.map((item) => {
               const pending = pendingItem === item.id;
               return (
                 <article key={item.id} className={`relative grid grid-cols-[6rem_1fr] gap-4 p-4 transition-opacity sm:grid-cols-[7rem_1fr_auto] sm:gap-6 sm:p-6 ${pending ? "opacity-55" : ""}`} aria-busy={pending}>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[10px] bg-surface-muted">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-surface-muted">
                     {item.mainImageUrl ? <Image src={item.mainImageUrl} alt={item.productName} fill sizes="112px" className="object-cover" /> : null}
                   </div>
                   <div className="min-w-0 py-1">
@@ -113,7 +113,7 @@ export default function CartPage() {
           </div>
         </section>
 
-        <aside className="rounded-2xl border border-line bg-surface p-6 lg:sticky lg:top-24">
+        <aside className="rounded-[20px] border border-line bg-surface p-6 shadow-soft lg:sticky lg:top-24">
           <h2 className="font-serif text-2xl font-semibold text-ink">Tóm tắt đơn hàng</h2>
           <dl className="mt-6 space-y-4 text-sm">
             <div className="flex justify-between gap-4"><dt className="text-muted">Tạm tính</dt><dd className="font-semibold text-ink">{formatCurrency(cart.subtotal)}</dd></div>

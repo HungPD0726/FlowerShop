@@ -56,7 +56,7 @@ public class SecurityConfig {
                         // Public Auth APIs
                         .requestMatchers("/api/v1/auth/register", "/api/v1/auth/login", "/api/v1/auth/refresh-token", "/api/v1/auth/logout").permitAll()
                         // Public Catalog APIs
-                        .requestMatchers("/api/v1/products/**", "/api/v1/categories/**").permitAll()
+                        .requestMatchers("/api/v1/products/**", "/api/v1/categories/**", "/api/v1/articles/**").permitAll()
                         // Public OpenAPI & Uploads
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/uploads/**").permitAll()
                         // Admin Endpoints

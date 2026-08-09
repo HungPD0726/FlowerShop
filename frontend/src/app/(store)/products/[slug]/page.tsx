@@ -124,9 +124,26 @@ export default function ProductDetailPage() {
   const activeImage = gallery[selectedImage];
   const related = relatedQuery.data?.data || [];
   const reviews = reviewsQuery.data?.data?.content || [];
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDescription || product.description,
+    image: gallery.map((image) => image.imageUrl),
+    sku: product.sku,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "VND",
+      price: currentPrice,
+      availability: isOutOfStock ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/products/${product.slug}`,
+    },
+    ...(product.reviewCount > 0 ? { aggregateRating: { "@type": "AggregateRating", ratingValue: product.averageRating, reviewCount: product.reviewCount } } : {}),
+  };
 
   return (
     <div className="pb-28 lg:pb-0">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <div className="page-shell py-6 sm:py-10">
         <nav aria-label="Đường dẫn" className="mb-7 flex items-center gap-2 overflow-hidden text-xs text-muted">
           <Link href="/" className="shrink-0 hover:text-ink">Trang chủ</Link>
@@ -138,7 +155,7 @@ export default function ProductDetailPage() {
 
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)] lg:gap-16">
           <section aria-label="Ảnh sản phẩm" className="min-w-0">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-muted sm:aspect-[5/6]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] bg-surface-muted sm:aspect-[5/6]">
               {activeImage ? (
                 <Image src={activeImage.imageUrl} alt={activeImage.altText || product.name} fill priority sizes="(max-width: 1024px) 100vw, 57vw" className="object-cover" />
               ) : (
@@ -154,7 +171,7 @@ export default function ProductDetailPage() {
             {gallery.length > 1 && (
               <div className="mt-3 flex gap-3 overflow-x-auto pb-2" role="list" aria-label="Chọn ảnh sản phẩm">
                 {gallery.map((image, index) => (
-                  <button key={`${image.id}-${image.imageUrl}`} type="button" aria-label={`Xem ảnh ${index + 1}`} aria-current={selectedImage === index ? "true" : undefined} onClick={() => setSelectedImage(index)} className={`relative h-20 w-16 shrink-0 overflow-hidden rounded-[10px] border-2 transition-opacity ${selectedImage === index ? "border-accent" : "border-transparent opacity-65 hover:opacity-100"}`}>
+                  <button key={`${image.id}-${image.imageUrl}`} type="button" aria-label={`Xem ảnh ${index + 1}`} aria-current={selectedImage === index ? "true" : undefined} onClick={() => setSelectedImage(index)} className={`relative h-20 w-16 shrink-0 overflow-hidden rounded-xl border-2 transition-opacity ${selectedImage === index ? "border-accent" : "border-transparent opacity-65 hover:opacity-100"}`}>
                     <Image src={image.imageUrl} alt="" fill sizes="64px" className="object-cover" />
                   </button>
                 ))}
@@ -184,7 +201,7 @@ export default function ProductDetailPage() {
                   {product.variants.filter((variant) => variant.isActive).map((variant) => {
                     const disabled = variant.stockQuantity <= 0;
                     return (
-                      <button key={variant.id} type="button" disabled={disabled} aria-pressed={selectedVariant?.id === variant.id} onClick={() => { setSelectedVariant(variant); setQuantity(1); }} className={`min-h-14 rounded-[10px] border px-3 py-2 text-left text-xs transition-colors ${selectedVariant?.id === variant.id ? "border-accent bg-accent-soft text-ink" : "border-line bg-surface text-muted hover:border-ink/30"} disabled:cursor-not-allowed disabled:opacity-45`}>
+                      <button key={variant.id} type="button" disabled={disabled} aria-pressed={selectedVariant?.id === variant.id} onClick={() => { setSelectedVariant(variant); setQuantity(1); }} className={`min-h-14 rounded-xl border px-3 py-2 text-left text-xs transition-colors ${selectedVariant?.id === variant.id ? "border-accent bg-accent-soft text-ink" : "border-line bg-surface text-muted hover:border-ink/30"} disabled:cursor-not-allowed disabled:opacity-45`}>
                         <span className="block font-bold">{variant.name}</span>
                         <span className="mt-1 block">{disabled ? "Hết hàng" : formatCurrency(variant.salePrice || variant.price)}</span>
                       </button>
@@ -194,7 +211,7 @@ export default function ProductDetailPage() {
               </fieldset>
             )}
 
-            <div className="mt-7 rounded-2xl border border-line bg-surface p-5 sm:p-6">
+            <div className="mt-7 rounded-[20px] border border-line bg-surface p-5 sm:p-6">
               <div className="flex items-center gap-2 text-sm font-bold text-ink"><CalendarBlank className="text-accent" /> Thời gian và lời nhắn</div>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <Input label="Ngày giao hoa" type="date" min={minDate} value={deliveryDate} required onChange={(event) => setDeliveryDate(event.target.value)} />
@@ -228,14 +245,14 @@ export default function ProductDetailPage() {
             {reviewsQuery.isLoading ? <div className="grid gap-4 sm:grid-cols-2"><Skeleton className="h-40" /><Skeleton className="h-40" /></div> : reviews.length > 0 ? (
               <div className="grid gap-4 sm:grid-cols-2">
                 {reviews.map((review) => (
-                  <article key={review.id} className="rounded-2xl border border-line bg-surface p-6">
-                    <div className="flex gap-1 text-warning" aria-label={`${review.rating} trên 5 sao`}>{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={14} weight={index < review.rating ? "fill" : "regular"} />)}</div>
+                  <article key={review.id} className="rounded-[20px] border border-line bg-surface p-6">
+                    <div className="flex gap-1 text-warning" role="img" aria-label={`${review.rating} trên 5 sao`}>{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={14} weight={index < review.rating ? "fill" : "regular"} />)}</div>
                     <p className="mt-5 text-sm leading-6 text-ink">{review.comment || "Khách hàng đã đánh giá sản phẩm."}</p>
                     <p className="mt-5 text-xs font-bold text-muted">{review.userName}</p>
                   </article>
                 ))}
               </div>
-            ) : <p className="rounded-2xl border border-line bg-surface p-8 text-sm text-muted">Sản phẩm chưa có đánh giá.</p>}
+            ) : <p className="rounded-[20px] border border-line bg-surface p-8 text-sm text-muted">Sản phẩm chưa có đánh giá.</p>}
           </div>
         </section>
 

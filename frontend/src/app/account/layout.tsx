@@ -22,21 +22,21 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
 
   return (
     <AuthGate>
-      <div className="flex min-h-dvh flex-col bg-canvas">
+      <div className="account-shell flex min-h-dvh flex-col bg-canvas">
         <SiteHeader />
         <main id="main-content" className="page-shell flex-1 py-8 sm:py-12">
           <div className="mb-8 flex items-end justify-between gap-6">
             <div><p className="eyebrow">Tài khoản</p><h1 className="mt-2 font-serif text-4xl font-medium tracking-[-0.04em] text-ink">Xin chào, {user?.fullName?.split(" ").at(-1)}.</h1></div>
           </div>
-          <div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)]">
-            <aside>
-              <nav aria-label="Tài khoản" className="flex gap-2 overflow-x-auto pb-2 lg:sticky lg:top-24 lg:flex-col">
+          <div className="grid min-w-0 gap-8 lg:grid-cols-[14rem_minmax(0,1fr)]">
+            <aside className="min-w-0">
+              <nav aria-label="Tài khoản" className="flex w-full min-w-0 gap-2 overflow-x-auto pb-2 lg:sticky lg:top-24 lg:flex-col">
                 {navItems.map((item) => {
                   const Icon = item.icon;
                   const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-                  return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`flex min-h-11 shrink-0 items-center gap-3 rounded-[10px] px-4 text-sm font-bold ${active ? "bg-ink text-surface" : "text-muted hover:bg-surface hover:text-ink"}`}><Icon /> {item.name}</Link>;
+                  return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`flex min-h-11 shrink-0 items-center gap-3 rounded-xl px-4 text-sm font-bold ${active ? "bg-accent text-surface" : "text-muted hover:bg-surface hover:text-ink"}`}><Icon /> {item.name}</Link>;
                 })}
-                <button type="button" onClick={signOut} className="flex min-h-11 shrink-0 items-center gap-3 rounded-[10px] px-4 text-sm font-bold text-danger hover:bg-danger/10"><SignOut /> Đăng xuất</button>
+                <button type="button" onClick={signOut} className="flex min-h-11 shrink-0 items-center gap-3 rounded-xl px-4 text-sm font-bold text-danger hover:bg-danger/10"><SignOut /> Đăng xuất</button>
               </nav>
             </aside>
             <div className="min-w-0">{children}</div>
